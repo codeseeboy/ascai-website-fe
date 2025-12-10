@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -19,9 +23,40 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/utils.js", "hooks/use-performance.js", "components/team-status-viewer.tsx", "components/team-section-swipe.tsx", "components/team-network.jsx", "components/navigation.jsx", "components/loader.jsx", "components/hero-section.jsx", "components/footer.jsx", "components/faculty-section.jsx", "components/about-section.jsx", "app/page.jsx", "app/loading.jsx", "app/layout.jsx", "app/vortex/page.jsx", "app/vortex/2024/page.jsx", "app/vortex/2023/page.jsx", "app/voice/page.jsx", "app/teams/page.jsx", "app/teams/loading.jsx", "app/newsletter/page.jsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "lib/utils.js",
+    "hooks/use-performance.js",
+    "components/team-status-viewer.tsx",
+    "components/team-section-swipe.tsx",
+    "components/team-network.jsx",
+    "components/navigation.jsx",
+    "components/loader.jsx",
+    "components/hero-section.jsx",
+    "components/footer.jsx",
+    "components/faculty-section.jsx",
+    "components/about-section.jsx",
+    "app/page.jsx",
+    "app/loading.jsx",
+    "app/layout.jsx",
+    "app/vortex/page.jsx",
+    "app/vortex/2024/page.jsx",
+    "app/vortex/2023/page.jsx",
+    "app/voice/page.jsx",
+    "app/teams/page.jsx",
+    "app/teams/loading.jsx",
+    "app/newsletter/page.jsx",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
