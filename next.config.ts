@@ -66,6 +66,16 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+
+  // Optional: local/dev parity for Vercel rewrites
+  async rewrites() {
+    return [
+      {
+        source: '/vortex-ai/:path*',
+        destination: 'https://vortex-ai2025.vercel.app/:path*',
+      },
+    ]
+  },
 }
 
 export default nextConfig

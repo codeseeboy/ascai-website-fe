@@ -35,6 +35,7 @@ export function Navigation() {
 
   // VORTEX event years
   const vortexYears = [
+    { name: "VORTEX.AI 2025", href: "/vortex-ai" },
     { name: "VORTEX.AI 2024", href: "/vortex/2024" },
     // { name: "VORTEX.AI 2023", href: "/vortex/2023" },
   ]

@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/vortex-ai/:path*",
+      "destination": "https://vortex-ai2025.vercel.app/:path*"
+    }
+  ]
+}
