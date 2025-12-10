@@ -72,7 +72,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/vortex-ai/:path*',
-        destination: 'https://vortex-ai2025.vercel.app/:path*',
+        destination: 'https://vortex-ai2025.vercel.app/vortex-ai/:path*',
       },
     ]
   },
