@@ -33,7 +33,7 @@ const rajdhani = Rajdhani({
 export const metadata = {
   title: "ASCAI - Association of Students for Computing Artificial Intelligence",
   description:
-    "Professional computing intelligence research collective developing advanced technological solutions and educational frameworks.",
+    "ASCAI - Association of Students for Computing Artificial Intelligence at SJCEM.",
 };
 
 /**

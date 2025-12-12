@@ -35,7 +35,7 @@ export function Navigation() {
 
   // VORTEX event years
   const vortexYears = [
-    { name: "VORTEX.AI 2025", href: "/vortex-ai" },
+    { name: "VORTEX.AI 2025", href: "/vortex/2025" },
     { name: "VORTEX.AI 2024", href: "/vortex/2024" },
     // { name: "VORTEX.AI 2023", href: "/vortex/2023" },
   ]
@@ -124,11 +124,11 @@ export function Navigation() {
                       key={year.name}
                       href={year.href}
                       prefetch={true}
-                      className={`block px-4 py-3 text-gray-300 hover:text-orange-400 hover:bg-orange-500/10 transition-all duration-200 font-rajdhani text-sm ${
-                        isActive(year.href)
-                          ? "text-orange-400 bg-orange-500/10"
-                          : ""
-                      }`}
+                      className={`block px-4 py-3 transition-all duration-200 font-rajdhani ${
+                        year.name.includes("2025")
+                          ? "text-orange-400 text-base md:text-lg font-bold animate-vortex-pulse hover:scale-[1.03]"
+                          : "text-gray-300 text-sm hover:text-orange-400"
+                      } ${isActive(year.href) ? "bg-orange-500/10" : "hover:bg-orange-500/10"}`}
                     >
                       {year.name}
                     </Link>
@@ -183,11 +183,11 @@ export function Navigation() {
                 href={year.href}
                 prefetch={true}
                 onClick={handleMobileNavClose}
-                className={`block text-sm font-rajdhani transition-all duration-200 pl-4 ${
-                  isActive(year.href)
-                    ? "text-orange-400"
-                    : "text-gray-400 hover:text-orange-400"
-                }`}
+                className={`block font-rajdhani transition-all duration-200 pl-4 ${
+                  year.name.includes("2025")
+                    ? "text-orange-400 text-base font-bold animate-vortex-pulse"
+                    : "text-gray-400 text-sm hover:text-orange-400"
+                } ${isActive(year.href) ? "" : ""}`}
               >
                 {year.name}
               </Link>

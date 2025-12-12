@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 const facultyData = [
   {
     id: 1,
-    name: "DR. FARHA HANEEF",
+    name: "AJAY SIRSAT",
     position: "HOD - AIML",
     department: "AIML Department",
-    image: "/faculty/farha.jpg",
+    image: "/faculty/ajay-sirsat.jpg",
   },
   {
     id: 2,

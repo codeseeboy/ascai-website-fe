@@ -413,29 +413,25 @@ export default function TeamReel() {
   }, []);
 
   const [index, setIndex] = useState(0);
-  const [displayIndex, setDisplayIndex] = useState(0); // What we actually show
   const [playing, setPlaying] = useState(true);
   const [transitioning, setTransitioning] = useState(false);
   const timerRef = useRef<number | null>(null);
   const touchStartX = useRef<number | null>(null);
 
-  const current = reel[index]; // For image
-  const displayed = reel[displayIndex]; // For text content
-  const accent = ACCENT[displayed.accent];
+  const current = reel[index];
+  const accent = ACCENT[current.accent];
 
   const go = useCallback(
     (dir: 1 | -1) => {
       if (transitioning) return;
       setTransitioning(true);
       
-      // Update display immediately to avoid mismatch
       const newIndex = (index + dir + reel.length) % reel.length;
-      setDisplayIndex(newIndex);
       
       window.setTimeout(() => {
         setIndex(newIndex);
         setTransitioning(false);
-      }, 420);
+      }, 300);
     },
     [reel.length, transitioning, index]
   );
@@ -496,7 +492,7 @@ export default function TeamReel() {
               </div>
               <div className="mt-1 sm:mt-2 flex items-center justify-between text-[10px] sm:text-xs text-gray-400 font-mono">
                 <span>{">> ASCAI // TEAM REEL"}</span>
-                <span className={accent.text}>{displayed.groupName}</span>
+                <span className={accent.text}>{current.groupName}</span>
               </div>
             </div>
           </div>
@@ -527,40 +523,40 @@ export default function TeamReel() {
                 <div className="p-3 sm:p-4 md:p-6 flex flex-col h-full">
                   <div className="flex flex-wrap gap-2 text-[10px] sm:text-xs">
                     <span className={`px-2 py-0.5 border ${accent.chip}`}> 
-                      {displayed.team}
+                      {current.team}
                     </span>
                     <span className="px-2 py-0.5 border border-white/20 text-gray-300">
-                      {displayed.year}
+                      {current.year}
                     </span>
                   </div>
 
                   <h1
                     className={`mt-2 sm:mt-3 md:mt-4 font-orbitron font-extrabold leading-tight truncate ${accent.text} text-xl sm:text-2xl md:text-4xl`}
                   >
-                    {displayed.name}
+                    {current.name}
                   </h1>
 
                   <p className="mt-1 font-rajdhani text-sm sm:text-base md:text-lg text-gray-300">
-                    {displayed.position}
+                    {current.position}
                   </p>
 
                   {/* Stats */}
                   <div className="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
                     <div className="neon-stat text-center px-2 py-2">
                       <div className="stat-label text-[10px] sm:text-xs">TEAM</div>
-                      <div className="stat-value text-sm">{displayed.team}</div>
+                      <div className="stat-value text-sm">{current.team}</div>
                     </div>
                     <div className="neon-stat text-center px-2 py-2">
                       <div className="stat-label text-[10px] sm:text-xs">
                         POSITION
                       </div>
-                      <div className="stat-value text-sm">{displayed.position}</div>
+                      <div className="stat-value text-sm">{current.position}</div>
                     </div>
                     <div className="neon-stat text-center px-2 py-2">
                       <div className="stat-label text-[10px] sm:text-xs">SOCIAL</div>
                       <div className="stat-value flex justify-center">
                         <a
-                          href={displayed.social?.linkedin || "#"}
+                          href={current.social?.linkedin || "#"}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-1 hover:text-blue-400 text-sm"
@@ -645,7 +641,7 @@ export default function TeamReel() {
               </div>
               <div className="mt-2 flex items-center justify-between text-xs text-gray-400 font-mono">
                 <span>{">> ASCAI // TEAM REEL"}</span>
-                <span className={accent.text}>{displayed.groupName}</span>
+                <span className={accent.text}>{current.groupName}</span>
               </div>
             </div>
           </div>
@@ -697,17 +693,17 @@ export default function TeamReel() {
                 {/* Details */}
                 <div className="p-4 md:p-6 flex flex-col h-full">
                   <div className="flex items-center gap-2 text-[11px] md:text-xs">
-                    <span className={`px-2 py-1 border ${accent.chip}`}>{displayed.team}</span>
-                    <span className="px-2 py-1 border border-white/20 text-gray-300">{displayed.year}</span>
+                    <span className={`px-2 py-1 border ${accent.chip}`}>{current.team}</span>
+                    <span className="px-2 py-1 border border-white/20 text-gray-300">{current.year}</span>
                   </div>
 
                   <h1
                     className={["mt-3 md:mt-4 font-orbitron font-extrabold leading-tight","text-2xl md:text-4xl",accent.text,].join(" ")}
                   >
-                    {displayed.name}
+                    {current.name}
                   </h1>
 
-                  <p className="mt-1 font-rajdhani text-base md:text-lg text-gray-300">{displayed.position}</p>
+                  <p className="mt-1 font-rajdhani text-base md:text-lg text-gray-300">{current.position}</p>
 
                   {/* Divider */}
                   <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -716,19 +712,19 @@ export default function TeamReel() {
                   <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
                     <div className="neon-stat text-center px-2 py-3">
                       <div className="stat-label text-xs sm:text-sm">TEAM</div>
-                      <div className="stat-value text-sm sm:text-base">{displayed.team}</div>
+                      <div className="stat-value text-sm sm:text-base">{current.team}</div>
                     </div>
 
                     <div className="neon-stat text-center px-2 py-3">
                       <div className="stat-label text-xs sm:text-sm">POSITION</div>
-                      <div className="stat-value text-sm sm:text-base">{displayed.position}</div>
+                      <div className="stat-value text-sm sm:text-base">{current.position}</div>
                     </div>
 
                     <div className="neon-stat text-center px-2 py-3">
                       <div className="stat-label text-xs sm:text-sm">SOCIAL</div>
                       <div className="stat-value flex items-center justify-center gap-1 text-sm sm:text-base">
                         <a
-                          href={displayed.social?.linkedin || "#"}
+                          href={current.social?.linkedin || "#"}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-1 hover:text-blue-400 transition"
@@ -768,7 +764,7 @@ export default function TeamReel() {
 
                     {/* Reel index */}
                     <div className="font-mono text-xs text-gray-400">
-                      {displayIndex + 1}/{reel.length}
+                      {index + 1}/{reel.length}
                     </div>
                   </div>
                 </div>

@@ -89,7 +89,33 @@ export function HeroSection() {
 
   // ==================== Render ====================
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-10 bg-gradient-to-br from-black via-gray-900 to-black">
+    <>
+      {/* Vortex 2025 Live Marquee Banner - Top */}
+      <a
+        href="/vortex/2025"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block relative overflow-hidden bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 border-b-4 border-orange-400 py-4 mt-16 hover:from-orange-700 hover:via-amber-600 hover:to-orange-700 transition-all duration-300 cursor-pointer"
+      >
+        <div className="flex">
+          <div className="flex whitespace-nowrap animate-marquee-faster">
+            {[...Array(2)].map((_, groupIndex) => (
+              <div key={groupIndex} className="flex shrink-0">
+                {[...Array(8)].map((_, i) => (
+                  <span key={i} className="flex items-center gap-4 px-8 text-xl md:text-2xl font-orbitron font-black text-black shrink-0">
+                    CLICK HERE — VORTEX.AI 2025 REGISTRATIONS LIVE — CLICK/TAP TO REGISTER NOW
+                    <span className="text-lg md:text-xl font-rajdhani font-bold text-orange-900">
+                      • 18–19 DEC • GAMING • TECH • INNOVATION • LIMITED SLOTS • ENTER NOW →
+                    </span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </a>
+
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
       {/* ===== Binary Grid Background ===== */}
       <div className="absolute inset-0 opacity-15">
         {/* Horizontal Binary Lines */}
@@ -255,11 +281,6 @@ export function HeroSection() {
             </h2>
           </div>
 
-          {/* Description */}
-          <p className="text-gray-400 text-lg max-w-sm mx-auto font-rajdhani leading-relaxed">
-            Professional computing intelligence research collective developing advanced technological solutions.
-          </p>
-
           {/* Symbols */}
           <div className="flex justify-center space-x-4 pb-8">
             {symbols.map((item, index) => (
@@ -298,10 +319,6 @@ export function HeroSection() {
                 COMPUTING ARTIFICIAL INTELLIGENCE
               </h2>
             </div>
-
-            <p className="text-gray-400 text-lg max-w-lg font-rajdhani leading-relaxed">
-              Professional computing intelligence research collective developing advanced technological solutions and educational frameworks.
-            </p>
 
             <div className="flex space-x-4">
               {symbols.map((item, index) => (
@@ -399,5 +416,6 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+    </>
   )
 }
